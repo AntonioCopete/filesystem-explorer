@@ -16,6 +16,12 @@
 
 <body>
     <header>
+    <div class="row">
+    <div class="col col-12 title d-flex align-items-center justify-content-center">
+      <img class="img-thumbnail" src="./assets/icons/file-system.png">
+      <h2>File System Explorer</h2>
+    </div>
+  </div>
         <?php require_once("./search.php"); ?>
         <?php require_once("./directory.php"); ?>
         <?php require_once("./createFolderForm.php"); ?>
@@ -44,7 +50,7 @@
                 $directory = 'root';
             }
 
-            scandir($directory, SCANDIR_SORT_ASCENDING);
+            scandir($directory);
             if (is_dir($directory)) {
                 if ($dh = opendir($directory)) {
                     while (($file = readdir($dh)) !== false) {
@@ -62,6 +68,24 @@
                 }
             }
             ?>
+
+<div class="content-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col col-3" scope="col">File name</th>
+            <th class="col col-2" scope="col">Creation date</th>
+            <th class="col col-2" scope="col">Modified date</th>
+            <th class="col col-1" scope="col">Type</th>
+            <th class="col col-2" scope="col">Size</th>
+            <th class="col col-2" scope="col"></th>
+          </tr>
+        </thead>
+        <tbody class="table-content">
+          <?php require_once("./modules/files-info.php") ?>
+        </tbody>
+      </table>
+    </div>
         </section>
     </main>
 

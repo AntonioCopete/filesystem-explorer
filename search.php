@@ -1,6 +1,6 @@
 <div class="search__container">
     <form>
         <input type="text"></form>
-        <button>Search</button>
+        <button class='btn'>Search</button>
     </form>
 </div>
